@@ -1,0 +1,58 @@
+/*google font*/
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+
+*{
+    background-color: rgb(31, 27, 23);
+    color: #fff;
+    font-family: 'Changa', sans-serif;
+}
+
+.navbar{
+    display: flex;
+    align-items: baseline;
+}
+
+.logo{
+    text-decoration: none;
+    font-size: 60px;
+}
+
+.img-logo{
+    width: 50px;
+}
+
+.onglet{
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+}
+
+.onglet li{
+    list-style-type: none;
+    margin-right: 40px ;
+    
+}
+
+.onglet li a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.bouton{
+    
+    padding: 5px 60px;
+    line-height: 2.5;
+    text-shadow: 1px 1px 1px #242424;
+    color: #fff;
+    background-color: rgb(177, 2, 2);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+footer{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-content: flex-end;
+}
