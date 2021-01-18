@@ -3,8 +3,8 @@
 
 *{
     background-color: rgb(31, 27, 23);
-    color: #fff;
     font-family: 'Changa', sans-serif;
+    color: #fff;
 }
 
 .navbar{
@@ -39,7 +39,7 @@
 }
 
 .bouton{
-    
+    margin: 20px 0px;
     padding: 5px 60px;
     line-height: 2.5;
     text-shadow: 1px 1px 1px #242424;
@@ -48,11 +48,31 @@
     border-radius: 10px;
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
                 inset -2px -2px 3px rgba(0, 0, 0, .6);
+    transition: 0.5s;
 }
 
+.bouton:hover{
+    background-color: rgb(134, 40, 40)
+}
 footer{
     display: flex;
     height: 10vh;
     justify-content: center;
     align-content: flex-end;
+}
+
+
+/* Signup */
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
 }
