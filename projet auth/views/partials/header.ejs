@@ -16,10 +16,14 @@
 <nav class="navbar">
     <a class="logo" href="/"><img class="img-logo" src="../logo.png" alt="LeGolfCorner">Le Golf Corner</a>
     <ul class="onglet">
+        <% if (user) { %>
+        <li>Bienvenue,<%= user.email %></li>
         <li><a href="/shop">Le coin Shop</a></li>
-        <li><a href="/contact">Le coin Contact</a></li>
+        <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+        <%} else { %>
+        <li><a href="/shop">Le coin Shop</a></li>
         <li><a href="/login">Le coin Connection</a></li>
         <li><a class= "bouton-nav" href="/signup">Le coin Inscription</a></li>
-        <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+        <% } %>
     </ul>
 </nav>
