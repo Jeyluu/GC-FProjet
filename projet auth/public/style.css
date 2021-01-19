@@ -38,6 +38,12 @@
     font-size: 20px;
 }
 
+.fas {
+    font-size: 30px;
+    margin-top: 5px;
+    
+}
+
 .bouton{
     margin: 20px 0px;
     padding: 5px 60px;
@@ -52,8 +58,23 @@
 }
 
 .bouton:hover{
-    background-color: rgb(134, 40, 40)
+    background-color: rgb(66, 0, 173)
 }
+
+.bouton-nav {
+
+    background-color: rgb(177, 2, 2);
+    border-radius: 20px;
+    padding:0 20px;
+    transition: 0.5s;
+}
+
+.bouton-nav:hover {
+
+    background-color: rgb(66, 0, 173)
+    
+}
+
 footer{
     display: flex;
     height: 10vh;
@@ -83,4 +104,22 @@ input{
 
 .email.error{
     color: red;
+}
+
+/* SHOP */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+.carte {
+    margin: 20px 100px;
+}
+.image {
+    width: 350px;
+}
+.img-produit {
+    width: 100%;
 }

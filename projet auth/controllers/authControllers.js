@@ -7,6 +7,16 @@ const messErreur = (err) => {
     console.log(err.message, err.code);
     let errors = {email:"",password:""}
 
+//Email pas correct
+if(err.message === "Votre Email n'est pas correct") {
+    errors.email = "Cet Email n'existe pas dans notre base de donnée"
+}
+
+//Mot de passe pas correct
+if(err.message === "Le mot de passe n'est pas correct") {
+    errors.password = "Ce mot de passe n'est pas correct"
+}
+
 //code erreur en double
 if (err.code === 11000) {
     errors.email = "Cet Email a déjà été enregistré";
@@ -59,9 +69,17 @@ module.exports.login_post = async (req,res) => {
     
     try {
         const user = await User.login(email, password);
-        res.status(200).json({user:user._id})
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly:true, maxAge: maxAge * 1000});
+        res.status(200).json({user:user._id});
     }
     catch (err) {
-        res.status(400).json({})
+        const errors = messErreur(err);
+        res.status(400).json({errors});
     }
+}
+
+module.exports.logout_get = (req,res) => {
+    res.cookie('jwt', '', {maxAge: 1}); // ce code permettra de remplacer le jwt par un jwt blanc qui expirera rapidement
+    res.redirect('/');
 }

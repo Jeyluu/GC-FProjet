@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authroutes')
 const cookieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware')
 
 const port = 3000;
 const app = express();
@@ -27,8 +28,8 @@ mongoose.connect("mongodb://localhost:27017/Le-Golf-Corner", {
 app.get('/', (req,res) => {
     res.render('accueil')
 });
-app.get('/admin', (req,res) => {
-    res.render('admin')
+app.get('/shop', requireAuth, (req,res) => {
+    res.render('shop')
 });
 app.use(authRoutes);
 
