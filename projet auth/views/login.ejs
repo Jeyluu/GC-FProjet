@@ -19,7 +19,7 @@
     const passwordError = document.querySelector('.password.error');
 
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
 //reset des erreurs
@@ -44,7 +44,7 @@ try {
         passwordError.textContent = data.errors.password;
     }
     if(data.user) {
-        location.assign('/')
+        /*location.assign('/')*/
     }
 
 }

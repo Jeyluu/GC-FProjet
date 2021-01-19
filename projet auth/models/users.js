@@ -29,6 +29,20 @@ userSchema.pre('save', async function (next) { //La methode post utilisé sur ce
     this.password = await bcrypt.hash(this.password, salt)                                //this = refere à la creation de compte
     next();
 })
+
+//Methode static pour  connecter l'utilisateur, la methode ci-dessous va servir a comparer l'Email entré par l'utilisateur et celui de la base de donnée
+userSchema.statics.login = async function (email, password) {
+    const user = await this.findOne({email}) //this refere au user model
+    if (user) {
+        const auth = await bcrypt.compare(password, user.password);
+        if(auth){
+            return user;
+        }
+        throw Error("Le mot de passe n'est pas correcte")
+    }
+    throw Error("Votre Email n'est pas correct")
+}
+
 const User = mongoose.model("customer", userSchema)
 
 module.exports = User;
