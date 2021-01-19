@@ -1,4 +1,6 @@
 const User = require("../models/users")
+const jwt = require('jsonwebtoken')
+
 
 //Les messages d'erreurs
 const messErreur = (err) => {
@@ -21,6 +23,13 @@ if (err.message.includes('customer validation failed')){
 return errors;
 };
 
+const maxAge = 3 * 24 * 60 * 60; // le secret pass expirera dans 3 jour 24h 60min et 60 secondes
+const createToken = (id) => {
+    return jwt.sign({ id }, 'Golf ninja secret', {
+        expiresIn:maxAge  // ligne 28/29 est la formule qui nous retourne le token avec une signature header/payload+verify
+    });
+}
+
 
 module.exports.signup_get = (req,res) => {
     res.render("signup")
@@ -31,10 +40,14 @@ module.exports.login_get = (req,res) => {
 }
 
 module.exports.signup_post = async (req,res) => {//voir avec Philippe Lundi
+
+    
     const {email,password} = req.body;
     try {
         const user = await User.create({email,password});
-        res.status(201).json(user);
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly:true, maxAge: maxAge * 1000});
+        res.status(201).json({user: user._id});
     } catch(err) {
         const errors = messErreur(err);
         res.status(400).json({errors});

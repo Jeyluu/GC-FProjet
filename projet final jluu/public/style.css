@@ -76,3 +76,11 @@ input{
     color: #000;
     font-size: 20px;
 }
+
+.password.error{
+    color: red;
+}
+
+.email.error{
+    color: red;
+}
