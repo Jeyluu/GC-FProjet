@@ -19,7 +19,12 @@
         <% if (user) { %>
         <li>Bienvenue,<%= user.email %></li>
         <li><a href="/shop">Le coin Shop</a></li>
-        <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+        <li class="deroulant"><a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+            <ul class="sous">
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/paramètres">Paramètres</a></li>
+            </ul>
+        </li>
         <%} else { %>
         <li><a href="/shop">Le coin Shop</a></li>
         <li><a href="/login">Le coin Connection</a></li>

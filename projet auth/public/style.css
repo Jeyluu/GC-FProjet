@@ -5,12 +5,15 @@
     background-color: rgb(31, 27, 23);
     font-family: 'Changa', sans-serif;
     color: #fff;
+    margin: 0px;
+    padding: 0px;
 }
-
+/*Nav Bar*/
 .navbar{
     display: flex;
     align-items: baseline;
 }
+
 
 .logo{
     text-decoration: none;
@@ -44,6 +47,43 @@
     
 }
 
+nav ul li{
+    position: relative;
+    text-align: center;
+}
+.deroulant::after{
+    content: " ▼";
+    font-size: 15px;
+}
+
+.sous {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0px;
+}
+
+nav > ul li:hover .sous{
+    display: block;
+}
+
+.sous li {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.sous a {
+    padding: 10px;
+    border-bottom: none;
+}
+
+.sous a:hover{
+    border-bottom: none;
+    background-color: rgba(200, 200, 200, 0.1);
+}
+
 .bouton{
     margin: 20px 0px;
     padding: 5px 60px;
@@ -74,7 +114,7 @@
     background-color: rgb(66, 0, 173)
     
 }
-
+/*footer*/
 footer{
     display: flex;
     height: 10vh;
@@ -113,6 +153,7 @@ input{
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-around;
+    margin-top: 100px;
 }
 .carte {
     margin: 20px 100px;
