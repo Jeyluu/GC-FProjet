@@ -34,6 +34,13 @@ app.get('/shop', requireAuth, (req,res) => {
 });
 app.use(authRoutes);
 
+app.get('/parametres', (req,res) => {
+    res.render("parametres")
+})
+
+app.get('/compte', (req,res) => {
+    res.render("compte")
+})
 
 //cookies
 app.get('/set-cookies', (req,res) => {

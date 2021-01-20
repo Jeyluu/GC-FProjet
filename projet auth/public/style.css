@@ -164,3 +164,41 @@ input{
 .img-produit {
     width: 100%;
 }
+
+/*parametre*/
+
+.block-connexion{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.co-form{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 10px;
+}
+
+/*compte*/
+.titre-compte {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.block-compte{
+    display: flex;
+    justify-content:space-around;
+    margin: 40px;
+}
+
+.choix-compte{
+    width: 400px;
+    border: 1px rgba(246, 246, 246, 0.575) solid;
+    padding: 40px;
+    text-decoration: none;
+}
+
+.choix-compte:hover{
+    background-color: rgba(246, 246, 246, 0.575);
+}
